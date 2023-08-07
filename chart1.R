@@ -31,7 +31,7 @@ avg_black_pop <- five_states_data %>%
 
 # creating the line graph with the data above
 first_chart <- ggplot(avg_black_pop, aes(x = year, y = avg_black_pop, color = state)) +
-  geom_line(size = 1) +
+  geom_line() +
   labs(
     title = "Average Black Population in Jail Per State from 2000 to 2018",
     x = "Year",

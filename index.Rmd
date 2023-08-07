@@ -2,70 +2,86 @@
 title: "A3: Incarceration"
 output: html_document
 ---
+#### Author: Akshata Aravind
+
+#### Date: 8/6/23
 
 ### Introduction
 
-An introduction of the problem domain and a description of the variable(s) you are choosing to analyze (and why!)
+America is a country with one of the highest amounts of incarcerated people in the world. When analyzing in depth, people of color, especially Black populations, are incarcerated at disproportionately higher rates than the rest of the country, highlighting the systemic oppression built into the foundation of American society. This analysis illustrates and delves into the proportion of Black people in jail compared to the proportion of (majority) white people in jail in America through multiple data visualization techniques.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+As calculated and retrieved through the summary code, the counties/states with the highest proportion of black population in their jail are Gilmer County, GA and Maverick County, TX both with a proportion of **0.9803922 black people** in their jail. With about 98% of their jailed population being black, this highlights the blatant discrimination and oppression of the prison system in America. On the other hand, Verde County, TX has the lowest proportion of black people in their jail with **0.3448276 black people** in their jail. This displays how the highest and lowest proportions are both in Texas, which showcases that perhaps the state may not correlate to the proportion of black people in jail, but rather the politics and systems within counties and cities contribute more to the oppressive institution of racism.
 
-These will likely be calculated using your DPLYR skills, answering questions such as: 
+Furthermore, the county/state that has the highest proportion of white population in their jail is Armstrong County, PA with **0.9932432**. The county/state that has the lowest proportion of white population in their jail is Starr County, TX with **0.009756098**, which is significantly lower than the lowest proportion of black people in jail in the country.
 
-- What is the average value of my variable across all the counties (in the current year)?
-- Where is my variable the highest / lowest?
-- How much has my variable change over the last N years?
-
-Feel free to calculate and report values that you find relevant. Again, remember that the purpose is to think about how these measure of incarceration vary by race.
+Looking at our own state of Washington, the county that has the highest proportion of black population in their jail in WA state is Mason County at **0.8547009**, which is only about 13% off of the highest proportion of black people in jail in the jail. This highlights the level to which the mass incarceration of black populations is closely correlated within our local communities.
 
 ### The Dataset
 
 Who collected the data?  
+
+- The Vera Institute of Justice collected the data.
+
 How was the data collected or generated?  
+
+- The data was collected from multiple government resources and organizations (like the CDC and the Census Bureau) and compiled together.
+
 Why was the data collected?  
+
+- The data was collected to analyze overarching incarceration trends in the US, since data is mostly collected from local cities and counties, so an overall look for the country would be extremely beneficial.
+
 How many observations (rows) are in your data?  
+
+- There are 153811 observations (rows) in my data.
+
 How many features (columns) are in the data?  
+
+- There are 28 features (columns) in my data.
+
 What, if any, ethical questions or questions of power do you need to consider when working with this data?  
 What are possible limitations or problems with this data?   (at least 200 words)
+
+There are numerous ethical questions and questions of power that need to be considered when working with this data. Firstly, the institution of the prison and jail system in America should be understood and contextualized, especially when its history is deeply rooted in racism and oppressive systems. This allows us to research apt questions and to understand the context of the data going into the analysis, which may shed light upon certain proportions of populations within the jail and prison system. Furthermore, ensuring that there is transparency in how the data was collected (maintaining the privacy of those in the system) is integral to analyzing this data in a fair manner. Additionally, understanding how harmful narratives can be concluded solely from this data set without understanding the history of incarceration in the US, could lead to extremely detrimental conclusions under the guise of data. This is one major limitation of the data, as this data set only provides numbers and locations, and does not involve context. Additionally, under reporting disparities (or even over reporting) can also lead to perpetuated stereotypes, which enables an incorrect representation of the data. One way we can make sure these limitations and biases aren't interfering with the data analysis is to talk about the context of the data and to frame the numerical summaries and solutions from a lens of various, diverse perspectives that provide support to the conclusions of the data rather than leaving these values in a void without context.
 
 
 ### Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+This chart below is a line graph of the percentage of black people in jails in the top 5 most populous states in the US (California, Texas, Florida, New York, and Pennsylvania). The data was created by averaging county data from each state from 2000-2018. The graph below displays the trends of incarceration of black people within 5 states overtime and in correlation to one another.
 
-The first chart that you will create and include will show the trend over time of your variable/topic. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - This may mean showing the same measure for different locations or different racial groups. Think carefully about a meaningful comparison of locations (e.g., the top 10 counties in a state, top 10 states, etc.)
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
+``````{r first_chart, echo = FALSE, message = FALSE}
+source("chart1.R")
+plot(first_chart)
 ```
+
+#### Patterns:
+- Overall, **Florida has the highest consistent proportions of Black people in jail** compared to California being one of the lowest
+- All 5 states show stable trends of incarceration of Black people from 2000-2018, although the rates in general are **consistently and disproportionately high**
 
 ### Variable Comparison Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+This chart below is a line graph of the population of Black people in WA state jails versus the total jail population in WA state throughout the years of 1970-2018. This graph was created through compiling and adding all the county jail data from WA state. This graph highlights the trend of Black people's incarceration within Washington State overtime.
 
-The second chart that you will create and include will show how two different (continuous) variables are related to one another. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
+``````{r second_chart, echo = FALSE, message = FALSE}
+source("chart2.R")
+plot(second_chart)
+```
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- If you choose to add a color encoding (not required), you need a legend for your different color and a clear legend title
+#### Patterns:
+- There is a **positive trend** between Black population in jail versus the total jail population in Washington State
+- The graph displays an almost **direct correlation** between the two variables, illustrating the consistent disproportionate incarceration of Black people in Washington State
 
 ### Map
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+This map below is a map of the US where each state is labeled based off the percentage of Black people in their jails in 2018. This visual illustrates the hotspots in the country where mass Black incarceration is most prevalent and rampant.
 
-The last chart that you will create and include will show how a variable is distributed geographically. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
+``````{r map_chart, echo = FALSE, message = FALSE}
+source("map.R")
+plot(map_chart)
+```
 
-- Your map needs a title
-- Your color scale needs a legend with a clear label
-- Use a map based coordinate system to set the aspect ratio of your map
-
+#### Patterns:
+- The **Southeast** region of the country has a higher proportion of Black people in their jails, with most of the area being red
+- **Louisiana and Alabama** are hot spots and the states with the *highest proportion* of Black people in their jails
+- **New Mexico, Idaho, and Montana** seem to be states with the *lowest proportion* of Black people in their jails
