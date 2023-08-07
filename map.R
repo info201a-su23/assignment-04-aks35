@@ -33,10 +33,10 @@ perc_black_pop <- perc_black_pop %>%
   rename(region = state_full_name) %>%
   mutate(region = tolower(region))
 
-# create the map
+# merging the data
 merged_data <- left_join(us_map, perc_black_pop, by = "region")
 
-# Create the map using ggplot2
+# creating the map and using scale fill gradient to create color gradient within states
 map_chart <- ggplot(merged_data, aes(x = long, y = lat, group = group, fill = black_jail_percentage)) +
   geom_polygon() +
   coord_fixed(ratio = 1.3) +
